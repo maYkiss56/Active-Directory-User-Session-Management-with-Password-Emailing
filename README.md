@@ -7,22 +7,22 @@ Active Directory User Session Management with Password Emailing
 project-root/
 │
 ├── config/
-│		├── ad.js					# Подключение и работа с Active Directory
-│		├── db.js					# Подключение к базе данных SQL Server
-│		└── mailer.js 		# Отправка email с паролем пользователю
+│	├── ad.js		# Подключение и работа с Active Directory
+│	├── db.js		# Подключение к базе данных SQL Server
+│	└── mailer.js 		# Отправка email с паролем пользователю
 │
 ├── scripts/
-│		└── main.js				# Основной скрипт управления сессиями
+│	└── main.js		# Основной скрипт управления сессиями
 │
-├── .env 							# Конфигурационные переменные окружения
-├── README.md 				# Описание проекта
-└── package.json 			# Зависимости проекта и скрипты
+├── .env 			# Конфигурационные переменные окружения
+├── README.md 			# Описание проекта
+└── package.json 		# Зависимости проекта и скрипты
 
 
 Установка и настройка
 1. Клонирование репозитория
 	Сначала клонируйте репозиторий на локальную машину:
-	git clone https://github.com/yourusername/yourproject.git
+	git clone https://github.com/maYkiss56/Active-Directory-User-Session-Management-with-Password-Emailing.git
 	cd yourproject
 
 2. Установка зависимостей
