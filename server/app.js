@@ -5,11 +5,14 @@ import userRoutes from './routes/users.js';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+	origin: 'http://localhost:3000',
+	credentials: true,
+}));
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
-app.use('/appi/users', userRoutes);
+app.use('/api/users', userRoutes);
 
 app.listen(5000, () => {
 	console.log('Сервер запущен на порту 5000...')

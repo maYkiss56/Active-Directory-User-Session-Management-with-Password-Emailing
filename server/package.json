@@ -2,11 +2,16 @@
 	"name": "ad",
 	"version": "1.0.0",
 	"description": "Active Directory User Session Management with Password Emailing",
-	"main": "scripts/main.js",
+	"main": "main.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
 	"author": "",
-	"license": "ISC"
+	"license": "ISC",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"cors": "^2.8.5",
+		"express": "^4.19.2"
+	}
 }
