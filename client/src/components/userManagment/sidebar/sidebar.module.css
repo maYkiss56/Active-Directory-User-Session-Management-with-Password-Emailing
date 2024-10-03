@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	min-height: 100vh;
+	background: #222;
+	overflow: hidden;
+}
+
+.sidebar {
+	position: absolute;
+	width: 80px;
+	height: 100vh;
+	background: #fff;
+	transition: .5s;
+	padding-left: 10px;
+	overflow: hidden;
+}
+
+.sidebar ul {
+	position: relative;
+	height: 100vh;
+}
+
+.sidebar ul li {
+	position: relative;
+	list-style: none;
+}
+
+.sidebar ul li.active {
+	background: #222;
+	border-top-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+}
+
+.sidebar ul li.active::before {
+	content: '';
+	position: absolute;
+	top: -20px;
+	right: 0;
+	width: 20px;
+	height: 20px;
+	border-bottom-right-radius: 20px;
+	box-shadow: 5px 5px 0 5px #222;
+	background: transparent;
+}
+
+.sidebar ul li.active::after {
+	content: '';
+	position: absolute;
+	bottom: -20px;
+	right: 0;
+	width: 20px;
+	height: 20px;
+	border-top-right-radius: 20px;
+	box-shadow: 5px -5px 0 5px #222;
+	background: transparent;
+}
+
+.sidebar ul li.sidebarLogo {
+	margin-bottom: 50px;
+}
+
+.sidebar ul li.sidebarLogo .sidebarLinkIcon {
+	/* font-size: 2em; */
+	color: #333;
+}
+
+.sidebar ul li.sidebarLogo .sidebarLinkText {
+	font-size: 1.2em;
+	font-weight: 500;
+	color: #333;
+}
+
+.sidebar ul li a {
+	position: relative;
+	display: flex;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.sidebar ul li a .sidebarLinkIcon {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 60px;
+	padding-left: 10px;
+	height: 70px;
+	font-size: 1.5em;
+	color: #333;
+	transition: .5s;
+	z-index: 1;
+}
+
+.sidebar ul li a .sidebarLinkText {
+	position: relative;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	font-size: 1em;
+	color: #333;
+	padding-left: 15px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	transition: .5s;
+}
+.sidebar ul li.active a .sidebarLinkIcon,
+.sidebar ul li.active a .sidebarLinkText {
+	color: #fff;
+}
+
+.sidebar ul li:hover a .sidebarLinkIcon,
+.sidebar ul li:hover a .sidebarLinkText {
+	color: #2b86c5;
+}
+
+.sidebar ul li.active a .sidebarLinkIcon::before {
+	content: '';
+	position: absolute;
+	inset: 5px;
+	width: 60px;
+	background: #2b86c5;
+	border-radius: 50%;
+	transition: .5s;
+	z-index: -1;
+}
+
+.sidebar ul li:hover.active a .sidebarLinkIcon::before {
+	background: #fff;
+}
+
+.sidebarBottom {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.menuToggle {
+	position: absolute;
+	top: 20px;
+	left: 80px;
+	width: 40px;
+	height: 40px;
+	background: #2b86c5;
+	z-index: 1000;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: .5s;
+}
+
+.menuToggle::before {
+	content: '';
+	position: absolute;
+	width: 30px;
+	height: 2px;
+	background: #fff;
+	transform: translateY(-9px);
+	transition: .5s;
+	box-shadow: 0 9px 0 #fff;
+}
+
+.menuToggle::after {
+	content: '';
+	position: absolute;
+	width: 30px;
+	height: 2px;
+	background: #fff;
+	transform: translateY(9px);
+	transition: .5s;
+}
+
+.sidebar.active {
+	width: 270px;
+}
+
+.menuToggle.active {
+	left: 270px;
+}
+
+.menuToggle.active::before {
+	transform: translateY(0px) rotate(45deg);
+	box-shadow: 0 0 0 #fff;
+}
+
+.menuToggle.active::after {
+	transform: translateY(0px) rotate(-45deg);
+	box-shadow: 0 0 0 #fff;
+}
+
+
+.blob {
+	position: absolute;
+	top: 0;
+	right: -200px;
+	width: 500px;
+	height: 500px;
+	background: linear-gradient(180deg, rgba(47, 184, 255, .42) 31.77%, #5c9df1 100%);
+	border-radius: 24% 76% 35% 65% / 27% 36% 64% 73%;
+	transform: translate(-155px, -70px) rotate(-90deg);
+	transition: 1s cubic-bezier(.07, .8, .16, 1);
+	animation: animateBlob 20s infinite alternate;
+	z-index: -10;
+}
+

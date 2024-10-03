@@ -1,0 +1,101 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.statisticsContainer {
+	width: 1130px;
+	padding: 30px;
+	margin: 0 auto;
+	background: rgba(255, 255, 255, .15);
+	box-shadow: 0 8px 32px rgba(31, 38, 135, .37);
+	border: 1px solid rgba(255, 255, 255, .18);
+	border-radius: 20px;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header h2 {
+	font-size: 26px;
+	color: #fff;
+}
+
+.header button {
+	min-width: 85px;
+	height: 40px;
+	background-color: #1A80E6;
+	border-radius: 10px;
+	border: 1px solid #1A80E6;
+	text-decoration: none;
+	color: #F7FAFC;
+	padding: 6px 10px;
+	font-weight: 600;
+	transition: all .5s;
+	cursor: pointer;
+}
+
+.header button:hover {
+	color: #1A80E6;
+	background: #F7FAFC;
+	border: 1px solid #1A80E6;
+}
+
+.searchBar {
+	padding-top: 10px;
+}
+
+.searchInput {
+	max-width: 100%;
+	width: 100%;
+	height: 40px;
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	padding: 5px 10px;
+	color: #F7FAFC;
+	background: rgba(255, 255, 255, .15);
+	box-shadow: 0 2px 10px rgba(31, 38, 135, .37);
+	border: 1px solid rgba(255, 255, 255, .18);
+}
+
+.table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.table th, .table td {
+	padding: 12px;
+	border-bottom: 1px solid #ddd;
+	text-align: left;
+	
+}
+
+.table th {
+	background-color: transparent;
+	color: #fff;
+}
+
+.actionButton {
+	min-width: 85px;
+	height: 40px;
+	background-color: #1A80E6;
+	border-radius: 10px;
+	border: 1px solid #1A80E6;
+	text-decoration: none;
+	color: #F7FAFC;
+	padding: 6px 10px;
+	font-weight: 600;
+	transition: all .5s;
+	cursor: pointer;
+}
+
+.actionButton:hover {
+	color: #1A80E6;
+	background: #F7FAFC;
+	border: 1px solid #1A80E6;
+}

@@ -1,37 +1,32 @@
-import { useState } from 'react';
-import { UserList } from '../components/userManagment/UserList';
-import { UserForm } from '../components/userManagment/UserForm';
-import axios from 'axios';
+import { Sidebar } from '../components/userManagment/sidebar/Sidebar';
+import { Home } from '../components/userManagment/home/Home';
+import { Profile } from '../components/userManagment/profile/Profile';
+import { Statistics } from '../components/userManagment/statistics/Statistics';
+import { Folder } from '../components/userManagment/folder/Folder';
+import { Settings } from '../components/userManagment/settings/Settings';
+import { Routes, Route } from 'react-router-dom';
 
 const UserManagement = () => {
-	const [selectedUser, setSelectedUser] = useState(null);
-
-	const handleSelectUser = (user) => {
-		setSelectedUser(user);
-	};
-
-	const handleDeleteUser = async (userId) => {
-		try {
-			await axios.delete(`/api/users/${userId}`);
-			setSelectedUser(null);
-		} catch (error) {
-			console.error('Error deleting user:', error);
-		}
-	};
-
-	const handleUserSaved = () => {
-		setSelectedUser(null);
-		//обновить список пользователей после успешного сохранения
-	};
-
 	return (
-		<div>
-			<h1>Управление пользователями</h1>
-			<UserList onSelectUser={handleSelectUser} onDeleteUser={handleDeleteUser} />
-			<UserForm selectedUser={selectedUser} onUserSaved={handleUserSaved} />
+		<div style={{ display: 'flex' }}>
+			{/* Sidebar всегда виден */}
+			<Sidebar />
+
+			{/* Контент меняется в зависимости от маршрута */}
+			<div style={{ flex: 1, padding: '20px' }}>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="profile" element={<Profile />} />
+					<Route path="statistics" element={<Statistics />} />
+					<Route path="folder" element={<Folder />} />
+					<Route path="settings" element={<Settings />} />
+				</Routes>
+			</div>
 		</div>
 	);
-};
+}
+
+export default UserManagement;
 
 
-export { UserManagement };
+

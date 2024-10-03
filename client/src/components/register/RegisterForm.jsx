@@ -1,54 +1,65 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
+import form from '../login/form.module.css';
 
 const RegisterForm = () => {
-	const [username, setUsername] = useState('');
+	const [fullName, setFullName] = useState('');
 	const [email, setEmail] = useState('');
-	const [message, setMessage] = useState('');
-	const [error, setError] = useState('');
+	const navigate = useNavigate();
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		setMessage('');
-		setError('');
-
+	const handleRegister = async (e) => {
+		e.preventDefault(); // Остановить стандартное поведение формы
 		try {
-			const response = await axios.post('/api/auth/register', { username, email });
-			setMessage(response.data.message);
-			setUsername('');
-			setEmail('');
+			const response = await axios.post('http://localhost:5000/api/auth/register', {
+				fullName,
+				email
+			});
+
+			if (response.status === 200) {
+				toast.success('Пароль выслан на почту');
+				navigate('/login');
+			}
 		} catch (error) {
-			setError('Registration failed. Please try again.', error);
+			toast.error(error.response?.data?.message || 'Ошибка регистрации');
 		}
 	};
 
 	return (
 		<>
-		<div className="blob"></div>
-			<div className="wrapper">
-				<form onSubmit={handleSubmit}>
-					<h2>Регистрация</h2>
-					<div className="input-box">
-						<span className="icon"><ion-icon name="person"></ion-icon></span>
-						<input type="text" required value={username} onChange={ (e) => setUsername(e.target.value)} />
+			<div className={form.blob}></div>
+			<div className={form.wrapper}>
+				<form onSubmit={handleRegister}>
+					<h2 className={form.title}>Регистрация</h2>
+					<div className={form.inputBox}>
+						<span className={form.icon}><ion-icon name="person"></ion-icon></span>
+						<input
+							type="text"
+							required
+							value={fullName}
+							onChange={(e) => setFullName(e.target.value)}
+						/>
 						<label>ФИО</label>
 					</div>
-					<div className="input-box">
-						<span className="icon"><ion-icon name="mail"></ion-icon></span>
-						<input type="email" required value={email} onChange={ (e) => setEmail(e.target.value) } />
+					<div className={form.inputBox}>
+						<span className={form.icon}><ion-icon name="mail"></ion-icon></span>
+						<input
+							type="email"
+							required
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+						/>
 						<label>Почта</label>
 					</div>
-					<button type="submit">Зарегистироваться</button>
-					<div className="register-link">
-						<p>Если есть аккаунта?<Link to="/login">Авторизоваться</Link></p>
+					<button type="submit" className={form.authButton}>Зарегистрироваться</button>
+					<div className={form.registerLink}>
+						<p>Есть аккаунт? <Link to="/login">Авторизоваться</Link></p>
 					</div>
-					{message && <p style={{ color: 'green' }}>{message}</p>}
-					{error && <p style={{ color: 'red' }}>{error}</p>}
 				</form>
 			</div>
 		</>
 	);
-}
+};
 
 export { RegisterForm };

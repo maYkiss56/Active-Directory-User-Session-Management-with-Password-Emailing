@@ -1,0 +1,59 @@
+@import '../../../assets/fonts/fonts.css';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.header {
+	width: 1280px;
+	height: 60px;
+	margin: 0 auto;
+	border-bottom: 1px solid #637587;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+}
+
+.headerTitle {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.headerLogo {
+	width: 40px;
+}
+
+.headerName {
+	font-size: 20px;
+	font-weight: 600;
+	color: #fff;
+}
+
+.headerButtons {
+	display: flex;
+	gap: 20px;
+}
+
+.btn {
+	min-width: 85px;
+	height: 40px;
+	background-color: #1A80E6;
+	border-radius: 10px;
+	border: none;
+	text-decoration: none;
+	color: #F7FAFC;
+	padding: 6px 10px;
+	font-weight: 600;
+	transition: all .5s;
+}
+
+.btn:hover {
+	color: #1A80E6;
+	background: #F7FAFC;
+	border: 1px solid #1A80E6;
+}
